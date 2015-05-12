@@ -14,7 +14,7 @@
 $ git clone https://github.com/jollen/dotcity-starter-kit.git
 ```
 
-![圖 2.1：Fork .CITY Starter Kit](2.1.png)
+![圖 2.1：Fork .CITY Starter Kit](https://raw.githubusercontent.com/jollen/wotcity-guide/master/hello-iot-app/2.1.png)
 
 圖 2.1：Fork .CITY Starter Kit
 
@@ -22,13 +22,15 @@ $ git clone https://github.com/jollen/dotcity-starter-kit.git
 
 ### 安裝開發環境
 
-下載後，依下列步驟安裝開發環境：
+至 [Nodejs.org](http://nodejs.org/) 安裝 Node 執行環境。再依下列步驟安裝 .CITY Starter Kit 開發環境：
 
-1. 切換至專案目金女弓水：`$ cd dotcity-starter-kit`
+1. 切換至專案目錄：`$ cd dotcity-starter-kit`
 2. 安裝 Gulp 命令工具：`$ npm install --global gulp`
 3. 安裝 Bower 命令工具：`$ npm install --global bower`
-4. 安裝 Node 套件：`$ npm install to install`
+4. 安裝 Node 相依套件：`$ npm install`
 5. 安裝 Frontend 程式庫：`$ bower install`
+
+請注意，使用 Windows 作業系統者，需要另行安裝 [Git for Windows](https://msysgit.github.io/)。
 
 ## Step 2：修改 ARM mbed 程式碼
 
@@ -81,6 +83,23 @@ app.Container = Backbone.Model.extend({
   ...
 });
 ```
+.CITY Starter Kit 範例包含一個顯示溫度的圖表（Chart），圖表的 Y 軸數據，經回 Data Model 裡的 *getY()* 函數回傳：
+
+```
+  // Y-Axis getter
+  getY: function() {
+    return this.get('temperature');
+  }
+```
+
+這部份也要做相對應的修改：
+
+```
+  // Y-Axis getter
+  getY: function() {
+    return this.get('temp');
+  }
+```
 
 開啟 `index.html` 文件，找到 Template 的定義：
 
@@ -90,12 +109,18 @@ app.Container = Backbone.Model.extend({
     </script>
 ```
 
-`<%= data %>` 是引用變數的語法，變數名稱必須與 ARM mbed 裝置推送的 JSON 文件一致。以上述範例來說，需修改如下：
+Template 裡的語法：*<%= data %>*，是引用變數值的寫法。Template 裡的變數名稱，就是 JSON 文件的 key：必須 ARM mbed 裝置的 JSON 文件一致。以上述範例來說，需修改如下：
 
 ```
     <script type="text/template" id="tmpl-status">
       <p class="lead"><%= temp %></p>
     </script>
+```
+
+以本文的範例來看，ARM mbed 裝置所推送給 WoT.City 的 JSON 文件如下：
+
+```
+{ "temp": 25 }
 ```
 
 UI 的部份請自由發揮，例如：
@@ -116,7 +141,7 @@ UI 的部份請自由發揮，例如：
 $ gulp apps
 ```
 
-進行編譯。完成後，直接開放 `index.html` 文件即可。WoT.City 提供一個測試用的 device name：*testman*。瀏覽器開啟 `index.html` 後，再加上 frontend routing 的參數：
+進行編譯。完成後，使用瀏覽器開放 `index.html` 文件即可。WoT.City 提供一個測試用的 device name：*testman*。瀏覽器開啟 `index.html` 後，再加上 frontend routing 的參數：
 
 ```
 index.html#testman
@@ -129,6 +154,11 @@ index.html#5550937980d51931b3000009
 ```
 
 Device name 的建立請參考 [Physical to App：30 分鐘物聯網上手、Code-less](http://wotcity.com/guide/hello-world/zh-tw) 的教學。
+
+
+![圖 2.2：執行結果](https://raw.githubusercontent.com/jollen/wotcity-guide/master/hello-iot-app/2.2.png)
+
+圖 2.2：執行結果
 
 ## Step 5：出版套件
 
