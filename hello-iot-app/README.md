@@ -188,4 +188,6 @@ $ npm set registry http://registry.npmjs.org
 
 上述指令將 npm 伺服器修改為 `http://npm.wotcity.com`，出版套件後，再修改回 npm 官方的主機。
 
+## Build IoT App
 
+登入 WoT.City 後，至 [Build IoT App](http://wotcity.com/account/liveapp) 頁面即可找到你出版與分享的 App Them。
