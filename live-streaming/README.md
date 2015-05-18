@@ -6,7 +6,7 @@ WoT.City 開始支援 Live Streaming 功能，您將能使用 IoT 裝置進行�
 
 登入 wotcity.com 後，點撃 *Device Manager* 頁面。系統會為每個裝置配置一個 *Live Video* 功能。請點撃裝置的 *Live Video* 按紐。
 
-![圖 3.1：Fork .CITY Starter Kit](https://raw.githubusercontent.com/jollen/wotcity-guide/master/live-streaming/3.1.png)
+![圖 3.1：使用 Live Streaming 功能](https://raw.githubusercontent.com/jollen/wotcity-guide/master/live-streaming/3.1.png)
 
 圖 3.1：使用 Live Streaming 功能
 
@@ -18,6 +18,10 @@ WoT.City 開始支援 Live Streaming 功能，您將能使用 IoT 裝置進行�
 $ ffmpeg -s 640x480 -f video4linux2 -i /dev/video0 -f mpeg1video -b 800k -r 30 http://v.wot.city/object/5550937980d51931b3000009
 
 ```
+
+![圖 3.2：測試畫面](https://raw.githubusercontent.com/jollen/wotcity-guide/master/live-streaming/3.2.png)
+
+圖 3.2：測試畫面
 
 參數說明：
 
