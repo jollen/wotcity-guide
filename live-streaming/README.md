@@ -19,10 +19,6 @@ $ ffmpeg -s 640x480 -f video4linux2 -i /dev/video0 -f mpeg1video -b 800k -r 30 h
 
 ```
 
-![圖 3.2：測試畫面](https://raw.githubusercontent.com/jollen/wotcity-guide/master/live-streaming/3.2.png)
-
-圖 3.2：測試畫面
-
 參數說明：
 
 * *-s 640x480* 是視訊尺寸，測試期間僅支援 640x480
@@ -30,6 +26,10 @@ $ ffmpeg -s 640x480 -f video4linux2 -i /dev/video0 -f mpeg1video -b 800k -r 30 h
 * *-i /dev/video0* 是 USB Webcam 的裝置檔，將 USB Webcam 連接 Raspberry Pi 後自動產生
 * *-f mpeg1video* 表示要以 MPEG1 格式推送視訊流到 WoT.City，請勿修改
 * *http://v.wot.city/object/5550937980d51931b3000009* 是 WoT.City 的 video broker 服務，請將後面的數字修改為自已的 *Device Name* 即可
+
+![圖 3.2：測試畫面](https://raw.githubusercontent.com/jollen/wotcity-guide/master/live-streaming/3.2.png)
+
+圖 3.2：測試畫面
 
 ## Live Streaming over HTTP
 

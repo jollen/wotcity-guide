@@ -11,5 +11,9 @@
         "chapter": "Hello IoT App",
         "folder": "hello-iot-app",
         "desc": ""
+    },{
+        "chapter": "Live Streaming",
+        "folder": "live-streaming",
+        "desc": ""
     }]
 }
